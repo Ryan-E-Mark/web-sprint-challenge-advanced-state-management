@@ -13,14 +13,13 @@ const reducer = (state = initialState, action)=>{
         case FETCH_START:
             return {
                 ...state,
-                smurfs: [],
                 loading: true,
                 error: '',
             }
         case FETCH_SUCCESS:
             return {
                 ...state,
-                smurfs: [action.payload],
+                smurfs: action.payload,
                 loading: false,
                 error: ''
             }
@@ -41,7 +40,6 @@ const reducer = (state = initialState, action)=>{
         case POST_FAIL:
             return {
                 ...state,
-                smurfs: [],
                 loading: false,
                 error: action.payload
             }
