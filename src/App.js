@@ -4,6 +4,7 @@ import AddForm from './components/AddForm';
 import SmurfList from './components/SmurfList';
 import Header from './components/Header';
 import { fetchSmurfs } from "./actions";
+import { connect } from 'react-redux';
 import axios from 'axios';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -35,7 +36,9 @@ class App extends Component {
   }
 }
 
-export default App;
+
+
+export default connect()(App);
 
 //Task List:
 //1. Connect the fetchSmurfs actions to the App component.
