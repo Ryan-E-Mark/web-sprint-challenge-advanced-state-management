@@ -1,6 +1,9 @@
+import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, POST_SUCCESS, POST_FAIL } from "../actions";
 
 export const initialState = {
-    smurfs: [],
+    smurfs: [
+        
+    ],
     loading: false,
     error: ''
 }
@@ -12,12 +15,12 @@ const reducer = (state = initialState, action)=>{
                 ...state,
                 smurfs: [],
                 loading: true,
-                error: ''
+                error: '',
             }
         case FETCH_SUCCESS:
             return {
                 ...state,
-                smurfs: [...smurfs, action.payload],
+                smurfs: [action.payload],
                 loading: false,
                 error: ''
             }
@@ -26,12 +29,12 @@ const reducer = (state = initialState, action)=>{
                 ...state,
                 smurfs: [],
                 loading: false,
-                error: action.payoad
+                error: action.payload
             }
         case POST_SUCCESS:
             return {
                 ...state,
-                smurfs: [...smurfs, ...action.payload],
+                smurfs: [...state.smurfs, ...action.payload],
                 loading: false,
                 error: ''
             }
@@ -42,6 +45,8 @@ const reducer = (state = initialState, action)=>{
                 loading: false,
                 error: action.payload
             }
+        default: 
+            return state;
     }
 }
 
